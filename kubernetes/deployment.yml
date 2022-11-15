@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: eidodata
+ labels:
+   app: eidodata
+spec:
+ selector:
+   matchLabels:
+     app: eidodata
+     tier: web
+ template:
+   metadata:
+     labels:
+       app: eidodata
+       tier: web
+   spec:
+     containers:
+     - name: eidodata
+       image: gcr.io/PROJECT_ID/IMAGE:TAG
+       ports:
+       - containerPort: 8501
